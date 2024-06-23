@@ -4,6 +4,7 @@ main{
 }
 aside{
     min-width: 10%;
+    max-width: 15%;
     background: lightgray;
 }
 .grid{
@@ -25,7 +26,8 @@ aside{
     display: none;
 }
 .inputBox{
-
+    max-width:90%;
+    height:20px;
 }
 #hintFlagDiv{
     display: flex;
@@ -37,5 +39,8 @@ aside{
     background: green;
 }
 .dropdown:hover .dropdownElements{
-    display:block;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
