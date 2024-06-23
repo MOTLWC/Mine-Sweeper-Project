@@ -10,3 +10,8 @@ const cellElementArray = [];
 //!---------------Variables---------------------
 //!---------------Event Listeners---------------
 //!---------------Functions---------------------
+console.dir(gridParent);
+console.dir(rowInputElement);
+console.dir(columnInputElement);
+console.dir(mineInputElement);
+console.dir(flagCounterElement);
