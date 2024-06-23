@@ -9,3 +9,8 @@
     aspect-ratio: 1/1;
     background-color: grey;
 }
+#flagDisplay{
+    width:50px;
+    height:15px;
+    background: green;
+}
