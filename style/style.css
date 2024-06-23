@@ -18,6 +18,15 @@ aside{
     aspect-ratio: 1/1;
     background-color: grey;
 }
+.dropdown{
+    background:lightslategray;
+}
+.dropdownElements{
+    display: none;
+}
+.inputBox{
+
+}
 #hintFlagDiv{
     display: flex;
     justify-content: space-between;
@@ -26,4 +35,7 @@ aside{
     width:50px;
     height:15px;
     background: green;
+}
+.dropdown:hover .dropdownElements{
+    display:block;
 }
