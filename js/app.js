@@ -18,3 +18,11 @@ let mineNumber;
 gridParent = document.addEventListener("click", handleClick);
 gridParent = document.addEventListener("contextmenu", handleClick);
 //!---------------Functions---------------------
+function init(){
+    // delete all children from container element 
+    // resets all data variables and arrays 
+    // creates cell html atributes
+    // runs getSettingData and store in vars 
+    // runs the loopMines function 
+    // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
+}
