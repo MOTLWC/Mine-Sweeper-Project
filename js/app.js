@@ -15,4 +15,6 @@ let rowNumber;
 let columnNumber;
 let mineNumber;
 //!---------------Event Listeners---------------
+gridParent = document.addEventListener("click", handleClick);
+gridParent = document.addEventListener("contextmenu", handleClick);
 //!---------------Functions---------------------
