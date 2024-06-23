@@ -11,5 +11,8 @@ const cellElementArray = [];
  const mineLocations = [];
  const flagLocations = [];
 //!---------------Variables---------------------
+let rowNumber;
+let columnNumber;
+let mineNumber;
 //!---------------Event Listeners---------------
 //!---------------Functions---------------------
