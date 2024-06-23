@@ -1,3 +1,7 @@
+main{
+    display: flex;
+    justify-content:space-between ;
+}
 .grid{
     display: grid;
     gap:2px;
@@ -8,6 +12,10 @@
     width:100%;
     aspect-ratio: 1/1;
     background-color: grey;
+}
+#hintFlagDiv{
+    display: flex;
+    justify-content: space-between;
 }
 #flagDisplay{
     width:50px;
