@@ -41,8 +41,11 @@ const alterCssVariables = (varibleName, newValue) => {
 const alterMineMetaData = (index) =>{
     cellElementArray[index].setAttribute("value","Mine");
 }
-const iterateMetaData = (indexes) =>{
-
+const iterateMetaData = (id) => {
+    if (cellElementArray[id].value === "Mine") return;
+    console.log(cellElementArray[id].value);
+    if (!cellElementArray[id].value) cellElementArray[id].setAttribute("value", 0);
+    cellElementArray[id].setAttribute("value", cellElementArray[id].getAttribute("value") + 1);
 }
 //!---------------Functions---------------------
 function init(){
@@ -53,7 +56,7 @@ function init(){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
     loopMines();
-    alterMineMetaData(getAdjacentIndexes(mineLocations, false), iterateMetaData);
+    getAdjacentIndexes(mineLocations, false).forEach(iterateMetaData);
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
 
