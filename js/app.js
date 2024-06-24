@@ -38,6 +38,9 @@ const alterCssVariables = (varibleName, newValue) => {
     const root =document.querySelector(":root");
     root.style.setProperty(varibleName, newValue);
 }
+const alterMineMetaData = () =>{
+
+}
 //!---------------Functions---------------------
 function init(){
     deleteChildren();
@@ -85,7 +88,7 @@ function loopMines() {
     do {
         createMine();
     } while(mineLocations.length <= mineNumber);
-    console.log(mineLocations);
+    alterMetaData(alterMineMetaData, mineLocations);
     // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 
@@ -98,6 +101,9 @@ function createMine(index){
     createMine(index+1);
 }
 
+function alterMetaData(passedMethod, indexes) {
+    // forEach in parameter  run function 
+}
 
 //!---------------Testing---------------------
 init();
