@@ -41,16 +41,12 @@ function init(){
 }
 
 function getInputData() {
-    console.log("getting data");
-    console.log(rowInputElement.value);
     rowNumber = rowInputElement.value;
     columnNumber = columnInputElement.value;
     mineNumber = mineInputElement.value;
+    console.log(rowNumber, columnNumber,mineNumber);
     // if data is falsey or NAN set to default (row = column and vise versa)
 }
 
 //!---------------Testing---------------------
-// Tests that .forEach(remove) works 
-cellElementArray.push(document.querySelectorAll(".cell"));
 init();
-console.log(rowNumber, columnNumber, mineNumber)
