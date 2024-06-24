@@ -45,9 +45,9 @@ function getInputData() {
     columnNumber = columnInputElement.value;
     mineNumber = mineInputElement.value;
     console.log(rowNumber, columnNumber,mineNumber);
-    if (!rowNumber) rowNumber = 5;
-    if (!columnNumber) columnNumber = 5;
-    if (!mineNumber) mineNumber = Math.floor(rowNumber*columnNumber*0.2);
+    if (!Number(rowNumber)) rowNumber = 7;
+    if (!Number(columnNumber)) columnNumber = 7;
+    if (!Number(mineNumber)) mineNumber = Math.floor(rowNumber*columnNumber*0.2);
     console.log(rowNumber, columnNumber,mineNumber);
 }
 
