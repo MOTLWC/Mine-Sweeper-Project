@@ -47,7 +47,8 @@ function getInputData() {
     console.log(rowNumber, columnNumber,mineNumber);
     if (!rowNumber) rowNumber = 5;
     if (!columnNumber) columnNumber = 5;
-    if (!mineNumber) mineNumber = (rowNumber*columnNumber*0.2).floor();
+    if (!mineNumber) mineNumber = Math.floor(rowNumber*columnNumber*0.2);
+    console.log(rowNumber, columnNumber,mineNumber);
 }
 
 //!---------------Testing---------------------
