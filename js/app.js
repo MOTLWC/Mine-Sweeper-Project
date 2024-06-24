@@ -37,11 +37,10 @@ const resetVars = () => {
 function init(){
     deleteChildren();
     resetVars();
+    // set correct row number in html grid parent
     for(let cellId of cellArray){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
-    // creates cell html atributes
-    // runs getSettingData and store in vars 
     // runs the loopMines function 
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
