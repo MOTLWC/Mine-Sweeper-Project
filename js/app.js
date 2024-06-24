@@ -33,14 +33,16 @@ const resetVars = () => {
         cellArray.push(i);
     }
 }
+// interacts with the :root element to get to the variables
 const alterCssVariables = (varibleName, newValue) => {
-
+    const root =document.querySelector(":root");
+    root.style.setProperty(varibleName, newValue);
 }
 //!---------------Functions---------------------
 function init(){
     deleteChildren();
     resetVars();
-    alterCssVariables("columnNumber", columnNumber);
+    setColumnValue();
     // set correct row number in html grid parent
     for(let cellId of cellArray){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
@@ -67,6 +69,16 @@ function createChildElement(parent, childId, ...atributes){
         newChild.setAttribute(atribute[0],atribute[1]);
     }
     parent.appendChild(newChild);
+}
+
+// if i don't use alterCssVariables again combine these functions 
+function setColumnValue(){
+    let columnStringValue = "";
+    for(let i = 0; i < columnNumber;i++){
+        columnStringValue += "auto ";
+    }
+    console.log(columnStringValue);
+    alterCssVariables("--columnNumber", columnStringValue);
 }
 //!---------------Testing---------------------
 init();
