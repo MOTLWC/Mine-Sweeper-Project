@@ -38,8 +38,8 @@ const alterCssVariables = (varibleName, newValue) => {
     const root =document.querySelector(":root");
     root.style.setProperty(varibleName, newValue);
 }
-const alterMineMetaData = () =>{
-
+const alterMineMetaData = (index) =>{
+    cellElementArray[index]
 }
 //!---------------Functions---------------------
 function init(){
@@ -72,6 +72,7 @@ function createChildElement(parent, childId, ...atributes){
         newChild.setAttribute(atribute[0],atribute[1]);
     }
     parent.appendChild(newChild);
+    cellElementArray.push(newChild);
 }
 
 // if i don't use alterCssVariables again combine these functions 
