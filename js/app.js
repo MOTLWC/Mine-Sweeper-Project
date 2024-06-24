@@ -38,7 +38,7 @@ function init(){
     deleteChildren();
     resetVars();
     for(let cellId of cellArray){
-        createChildElement(gridParent, cellId, [["reveal",false],["value",""],["flagged",false]]);
+        createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
     // creates cell html atributes
     // runs getSettingData and store in vars 
@@ -61,7 +61,7 @@ function createChildElement(parent, childId, ...atributes){
     const newChild = document.createElement("div");
     newChild.setAttribute("id",childId);
     for(let atribute of atributes){
-        newChild.setAttribute(atribute);
+        newChild.setAttribute(atribute[0],atribute[1]);
     }
     parent.appendChild(newChild);
 }
