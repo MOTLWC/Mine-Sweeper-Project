@@ -51,6 +51,5 @@ function getInputData() {
 //!---------------Testing---------------------
 // Tests that .forEach(remove) works 
 cellElementArray.push(document.querySelectorAll(".cell"));
-console.log(cellElementArray);
 init();
-console.log(cellElementArray);
+console.log(rowNumber, columnNumber, mineNumber)
