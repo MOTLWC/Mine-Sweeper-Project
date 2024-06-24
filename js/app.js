@@ -42,11 +42,13 @@ const alterMineMetaData = (index) =>{
     cellElementArray[index].setAttribute("value","Mine");
 }
 
-const countInstances = () => {
-    // returns an object containing id's and their count
+const countInstances = (totalObject, value) => {
+    if (!totalObject[value]) totalObject[value] = 0
+    totalObject[value] += 1;
 }
 
 const iterateMetaData = (idArray) => {
+    const iteratorObject = idArray.reduce(countInstances);
     // calls runs countInstances with idArray and then sets atributes accordingly 
 }
 //!---------------Functions---------------------
