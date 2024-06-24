@@ -29,11 +29,15 @@ const resetVars = () => {
     mineLocations.length = 0;
     flagLocations.length = 0;
     getInputData();
+    for(let i = 0; i < rowNumber*columnNumber;i++){
+        cellArray.push(i);
+    }
 }
 //!---------------Functions---------------------
 function init(){
     deleteChildren();
     resetVars();
+
     // creates cell html atributes
     // runs getSettingData and store in vars 
     // runs the loopMines function 
@@ -47,9 +51,9 @@ function getInputData() {
     console.log(rowNumber, columnNumber,mineNumber);
     if (!Number(rowNumber)) rowNumber = 7;
     if (!Number(columnNumber)) columnNumber = 7;
-    if (!Number(mineNumber)) mineNumber = Math.floor(rowNumber*columnNumber*0.2);
-    console.log(rowNumber, columnNumber,mineNumber);
+    if (!Number(mineNumber)) mineNumber = Math.floor(rowNumber*columnNumber*0.2); 
 }
+
 
 //!---------------Testing---------------------
 init();
