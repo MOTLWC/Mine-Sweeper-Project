@@ -41,6 +41,9 @@ const alterCssVariables = (varibleName, newValue) => {
 const alterMineMetaData = (index) =>{
     cellElementArray[index].setAttribute("value","Mine");
 }
+const iterateMetaData = (indexes) =>{
+
+}
 //!---------------Functions---------------------
 function init(){
     deleteChildren();
@@ -50,8 +53,7 @@ function init(){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
     loopMines();
-    
-    console.log(getAdjacentIndexes(mineLocations, false));
+    alterMineMetaData(getAdjacentIndexes(mineLocations, false), iterateMetaData);
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
 
@@ -101,7 +103,7 @@ function createMine(index){
     }
     createMine(index+1);
 }
-
+// Come back to this see if you can clean up the code a little
 function getAdjacentIndexes(indexes, includeSelf){
     const returnArray =[];
     for(let cellId of indexes){
