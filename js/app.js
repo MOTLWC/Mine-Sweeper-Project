@@ -33,10 +33,14 @@ const resetVars = () => {
         cellArray.push(i);
     }
 }
+const alterCssVariables = (varibleName, newValue) => {
+
+}
 //!---------------Functions---------------------
 function init(){
     deleteChildren();
     resetVars();
+    alterCssVariables("columnNumber", columnNumber);
     // set correct row number in html grid parent
     for(let cellId of cellArray){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
