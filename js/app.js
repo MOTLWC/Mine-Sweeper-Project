@@ -42,8 +42,9 @@ function init(){
 }
 
 function getInputData() {
-    // for all of the neccisary html data inputs
-    // get the inputted value
+    rowNumber = rowInputElement.value;
+    columnNumber = columnInputElement.value;
+    mineNumber = mineInputElement.value;
     // if data is falsey or NAN set to default (row = column and vise versa)
 }
 
