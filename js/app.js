@@ -84,14 +84,14 @@ function setColumnValue(){
 function loopMines() {
     do {
         createMine();
-    } while(mineArray.length <= mineNumber);
-    console.log(mineArray);
+    } while(mineLocations.length <= mineNumber);
+    console.log(mineLocations);
     // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 
 function createMine(index){
     if (!index) index = Math.floor(Math.random() *cellArray.length);
-    if (mineLocations.includes(index)){
+    if (!mineLocations.includes(index)){
         mineLocations.push(index);
         return;
     }
