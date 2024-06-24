@@ -85,11 +85,12 @@ function loopMines() {
     do {
         createMine();
     } while(mineArray.length <= mineNumber);
+    console.log(mineArray);
     // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 
 function createMine(index){
-    if (!index) index = math.floor(math.random() *cellArray.length);
+    if (!index) index = Math.floor(Math.random() *cellArray.length);
     if (mineArray.includes(index)){
         mineArray.push(index);
         return;
