@@ -25,9 +25,9 @@ const deleteChildren = () => {
     }
 }
 const resetVars = () => {
-    cellArray = [];
-    mineLoction = [];
-    flagLoctions = [];
+    cellArray.length = 0;
+    mineLocations.length = 0;
+    flagLocations.length = 0;
     getInputData();
 }
 //!---------------Functions---------------------
