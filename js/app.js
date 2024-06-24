@@ -88,7 +88,7 @@ function loopMines() {
     do {
         createMine();
     } while(mineLocations.length <= mineNumber);
-    alterMetaData(alterMineMetaData, mineLocations);
+    mineLocations.forEach(alterMineMetaData);
     // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 
@@ -99,10 +99,6 @@ function createMine(index){
         return;
     }
     createMine(index+1);
-}
-
-function alterMetaData(passedMethod, indexes) {
-    // forEach in parameter  run function 
 }
 
 //!---------------Testing---------------------
