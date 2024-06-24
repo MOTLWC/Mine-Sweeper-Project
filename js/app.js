@@ -41,6 +41,8 @@ function init(){
 }
 
 function getInputData() {
+    console.log("getting data");
+    console.log(rowInputElement.value);
     rowNumber = rowInputElement.value;
     columnNumber = columnInputElement.value;
     mineNumber = mineInputElement.value;
