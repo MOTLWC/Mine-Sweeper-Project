@@ -45,7 +45,9 @@ function getInputData() {
     columnNumber = columnInputElement.value;
     mineNumber = mineInputElement.value;
     console.log(rowNumber, columnNumber,mineNumber);
-    // if data is falsey or NAN set to default (row = column and vise versa)
+    if (!rowNumber) rowNumber = 5;
+    if (!columnNumber) columnNumber = 5;
+    if (!mineNumber) mineNumber = (rowNumber*columnNumber*0.2).floor();
 }
 
 //!---------------Testing---------------------
