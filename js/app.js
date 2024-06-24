@@ -50,7 +50,8 @@ function init(){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
     loopMines();
-    getAdjacentIndexes(mineArray, false);
+    
+    console.log(getAdjacentIndexes(mineLocations, false));
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
 
@@ -102,20 +103,18 @@ function createMine(index){
 }
 
 function getAdjacentIndexes(indexes, includeSelf){
-    // for each of the following values push into returnArray
-    // index - column 
-    // index - column -1
-    // index - column +1
-    // index + column 
-    // index + column -1
-    // index + column +1
-    // index 
-    // index +1
-    // index -1
-    // if !includesSelf don't include index
-    // Need to check if in the last column or the first, and not do +1 and -1 respectively 
-    // also need to check if < 0 or >= cellMap.length
-    // if either don't push into returnArray
+    const returnArray =[];
+    for(let cellId of indexes){
+        if (cellId%columnNumber !== columnNumber-1){
+            returnArray.push((cellId - columnNumber + 1),(cellId + 1),(cellId + columnNumber + 1));
+        }
+        else if (!cellId%columnNumber){
+            returnArray.push((cellId - columnNumber + 1),(cellId - 1),(cellId + columnNumber - 1));
+        }
+        if (includeSelf)  returnArray.push(cellId);
+        returnArray.push((cellId + 1),(cellId - 1));
+    }
+    return returnArray.filter((index) => {if ((index > 0) && (index < cellArray.length)) return index});
 }
 
 //!---------------Testing---------------------
