@@ -82,9 +82,9 @@ function setColumnValue(){
 }
 
 function loopMines() {
-    // do 
-    // run createmine()
-    // while mineArray.length !== numberOfMines Var
+    do {
+        createMine();
+    } while(mineArray.length <= mineNumber);
     // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 //!---------------Testing---------------------
