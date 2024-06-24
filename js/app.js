@@ -39,7 +39,7 @@ const alterCssVariables = (varibleName, newValue) => {
     root.style.setProperty(varibleName, newValue);
 }
 const alterMineMetaData = (index) =>{
-    cellElementArray[index]
+    cellElementArray[index].setAttribute("value","Mine");
 }
 //!---------------Functions---------------------
 function init(){
@@ -50,7 +50,6 @@ function init(){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
     loopMines();
-    // runs the loopMines function 
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
 
@@ -90,7 +89,6 @@ function loopMines() {
         createMine();
     } while(mineLocations.length <= mineNumber);
     mineLocations.forEach(alterMineMetaData);
-    // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 
 function createMine(index){
