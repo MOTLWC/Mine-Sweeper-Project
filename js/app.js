@@ -91,8 +91,8 @@ function loopMines() {
 
 function createMine(index){
     if (!index) index = Math.floor(Math.random() *cellArray.length);
-    if (mineArray.includes(index)){
-        mineArray.push(index);
+    if (mineLocations.includes(index)){
+        mineLocations.push(index);
         return;
     }
     createMine(index+1);
