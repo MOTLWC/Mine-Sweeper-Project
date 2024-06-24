@@ -15,10 +15,19 @@ let rowNumber;
 let columnNumber;
 let mineNumber;
 //!---------------Event Listeners---------------
-gridParent = document.addEventListener("click", handleClick);
-gridParent = document.addEventListener("contextmenu", handleClick);
+// gridParent = document.addEventListener("click", handleClick);
+// gridParent = document.addEventListener("contextmenu", handleClick);
+//!---------------Arrow Functions---------------
+const deleteChildren = () => {
+    while (gridParent.firstChild) {
+        gridParent.removeChild(gridParent.firstChild);
+        cellElementArray.shift();
+        console.log(cellElementArray);
+    }
+}
 //!---------------Functions---------------------
 function init(){
+    deleteChildren();
     // delete all children from container element 
     // resets all data variables and arrays 
     // creates cell html atributes
@@ -26,3 +35,9 @@ function init(){
     // runs the loopMines function 
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
+//!---------------Testing---------------------
+// Tests that .forEach(remove) works 
+cellElementArray.push(document.querySelectorAll(".cell"));
+console.log(cellElementArray);
+init();
+console.log(cellElementArray);
