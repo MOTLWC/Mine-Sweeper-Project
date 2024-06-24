@@ -43,13 +43,19 @@ const alterMineMetaData = (index) =>{
 }
 
 const countInstances = (totalObject, value) => {
-    if (!totalObject[value]) totalObject[value] = 0
-    totalObject[value] += 1;
+    if (cellElementArray[value].value === "Mine") return;
+    if (totalObject[value]) {totalObject[value] = totalObject[value] + 1;}
+    else {totalObject[value] = 1;}
+    return totalObject;
 }
 
 const iterateMetaData = (idArray) => {
-    const iteratorObject = idArray.reduce(countInstances);
-    // calls runs countInstances with idArray and then sets atributes accordingly 
+    const iteratorObject = idArray.reduce(countInstances,{});
+    console.log(iteratorObject);
+    for( let id in iteratorObject){
+        console.log(id, iteratorObject[id]);
+        cellElementArray[id].setAttribute("value", iteratorObject[id]);
+    }
 }
 //!---------------Functions---------------------
 function init(){
