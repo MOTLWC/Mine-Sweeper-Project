@@ -22,7 +22,6 @@ const deleteChildren = () => {
     while (gridParent.firstChild) {
         gridParent.removeChild(gridParent.firstChild);
         cellElementArray.shift();
-        console.log(cellElementArray);
     }
 }
 const resetVars = () => {
