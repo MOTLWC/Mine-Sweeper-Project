@@ -41,6 +41,11 @@ function init(){
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
 
+function getInputData() {
+    // for all of the neccisary html data inputs
+    // get the inputted value
+    // if data is falsey or NAN set to default (row = column and vise versa)
+}
 
 //!---------------Testing---------------------
 // Tests that .forEach(remove) works 
