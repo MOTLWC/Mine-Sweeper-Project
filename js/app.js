@@ -33,7 +33,7 @@ const resetVars = () => {
         cellArray.push(i);
     }
 }
-// interacts with the :root element to get to the variables
+// interacts with the :root element to get to the CSS variables
 const alterCssVariables = (varibleName, newValue) => {
     const root =document.querySelector(":root");
     root.style.setProperty(varibleName, newValue);
@@ -43,10 +43,10 @@ function init(){
     deleteChildren();
     resetVars();
     setColumnValue();
-    // set correct row number in html grid parent
     for(let cellId of cellArray){
         createChildElement(gridParent, cellId, ["reveal",false],["class","cell"],["value",""],["flagged",false]);
     }
+    loopMines();
     // runs the loopMines function 
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
@@ -79,6 +79,13 @@ function setColumnValue(){
     }
     console.log(columnStringValue);
     alterCssVariables("--columnNumber", columnStringValue);
+}
+
+function loopMines() {
+    // do 
+    // run createmine()
+    // while mineArray.length !== numberOfMines Var
+    // runs alterMetaData on mineArray with the add mine function to alter the html "value" metadata to be mines
 }
 //!---------------Testing---------------------
 init();
