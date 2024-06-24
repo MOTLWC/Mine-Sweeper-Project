@@ -37,7 +37,9 @@ const resetVars = () => {
 function init(){
     deleteChildren();
     resetVars();
-
+    for(let cellId of cellArray){
+        createChildElement(gridParent, cellId, [["reveal",false],["value",""],["flagged",false]]);
+    }
     // creates cell html atributes
     // runs getSettingData and store in vars 
     // runs the loopMines function 
@@ -54,6 +56,14 @@ function getInputData() {
     if (!Number(mineNumber)) mineNumber = Math.floor(rowNumber*columnNumber*0.2); 
 }
 
-
+// parameters (parentNode, childNodeId, aditional[atribute, value] pairs)
+function createChildElement(parent, childId, ...atributes){
+    const newChild = document.createElement("div");
+    newChild.setAttribute("id",childId);
+    for(let atribute of atributes){
+        newChild.setAttribute(atribute);
+    }
+    parent.appendChild(newChild);
+}
 //!---------------Testing---------------------
 init();
