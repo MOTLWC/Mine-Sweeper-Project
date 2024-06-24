@@ -25,16 +25,23 @@ const deleteChildren = () => {
         console.log(cellElementArray);
     }
 }
+const resetVars = () => {
+    cellArray = [];
+    mineLoction = [];
+    flagLoctions = [];
+    getInputData();
+}
 //!---------------Functions---------------------
 function init(){
     deleteChildren();
-    // delete all children from container element 
-    // resets all data variables and arrays 
+    resetVars();
     // creates cell html atributes
     // runs getSettingData and store in vars 
     // runs the loopMines function 
     // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
+
+
 //!---------------Testing---------------------
 // Tests that .forEach(remove) works 
 cellElementArray.push(document.querySelectorAll(".cell"));
