@@ -162,11 +162,12 @@ function leftClick(target){
 }
 
 function rightClick(target){
-    if (flagLocations.length === mineLocations.length) return;
+
     if (flagLocations.includes(target.id)) {
         flagLocations.splice(flagLocations.indexOf(target.id),1);
         target.classList.remove("flagStyle");
     }
+    else if (flagLocations.length === mineLocations.length) return;
     else {
         flagLocations.push(target.id);
         target.classList.add("flagStyle");
