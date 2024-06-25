@@ -50,3 +50,7 @@ aside{
     align-items: center;
     flex-direction: column;
 }
+.flagStyle{
+    background-color: crimson;
+    background-image: url(https://www.clipartmax.com/png/small/200-2005302_flag-marshal-waving-red-flag-gif.png);
+}
