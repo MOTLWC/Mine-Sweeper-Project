@@ -39,6 +39,7 @@ const alterCssVariables = (varibleName, newValue) => {
     root.style.setProperty(varibleName, newValue);
 }
 const alterMineMetaData = (index) =>{
+    cellElementArray[index].classList.add("red");
     cellElementArray[index].setAttribute("value","Mine");
 }
 
@@ -54,6 +55,7 @@ const iterateMetaData = (idArray) => {
     console.log(iteratorObject);
     for( let id in iteratorObject){
         console.log(id, iteratorObject[id]);
+        updateHtmlContent(id,iteratorObject[id]);
         cellElementArray[id].setAttribute("value", iteratorObject[id]);
     }
 }
@@ -133,4 +135,8 @@ function getAdjacentIndexes(indexes, includeSelf){
 }
 
 //!---------------Testing---------------------
+function updateHtmlContent(id, text){
+    cellElementArray[id].textContent = text;
+}
+
 init();

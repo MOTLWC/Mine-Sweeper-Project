@@ -32,6 +32,9 @@ aside{
     max-width:90%;
     height:20px;
 }
+.red{
+    background:red;
+}
 #hintFlagDiv{
     display: flex;
     justify-content: space-between;
