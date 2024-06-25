@@ -53,7 +53,7 @@ const countInstances = (totalObject, value) => {
 const iterateMetaData = (idArray) => {
     const iteratorObject = idArray.reduce(countInstances,{});
     for( let id in iteratorObject){
-        updateHtmlContent(id,iteratorObject[id]);
+        // updateHtmlContent(id,iteratorObject[id]);
         cellElementArray[id].setAttribute("value", iteratorObject[id]);
     }
 }
@@ -139,10 +139,10 @@ function handleClick(event) {
     if (!event.target.classList[0].includes("cell")) return;
     switch(event.type){
         case("click"):
-        console.log("click")
+        leftClick(event.target)
         break;
         case("contextmenu"):
-        console.log("right click")
+        rightClick(event.target)
         break;
     }
 }
@@ -162,6 +162,10 @@ function leftClick(target){
 }
 
 function rightClick(target){
+    if (flagLocations.length === mineLocations.length) return;
+    if (flagLocations.includes(target.id)) flagLocations.splice(flagLocations.indexOf(target.id),1);
+    flagLocations.push(target.id);
+    console.log(flagLocations);
     // if flagsArray.length = mineArray.length return 
     // add target to flagged 
     // update flag count html element (text value = mines array length -flags length )
