@@ -15,8 +15,8 @@ let rowNumber;
 let columnNumber;
 let mineNumber;
 //!---------------Event Listeners---------------
-// gridParent = document.addEventListener("click", handleClick);
-// gridParent = document.addEventListener("contextmenu", handleClick);
+gridParent = document.addEventListener("click", handleClick);
+gridParent = document.addEventListener("contextmenu", handleClick);
 //!---------------Arrow Functions---------------
 const deleteChildren = () => {
     while (gridParent.firstChild) {
@@ -69,7 +69,6 @@ function init(){
     }
     loopMines();
     iterateMetaData(getAdjacentIndexes(mineLocations, false));
-    // runs the alterMetaData(getProxIndexes(mineArray, false), func to add one to the current value)
 }
 
 function getInputData() {
@@ -122,20 +121,28 @@ function createMine(index){
 function getAdjacentIndexes(indexes, includeSelf){
     const returnArray =[];
     for(let cellId of indexes){
-        console.log("Mark " + cellId)
-        if (cellId%columnNumber !== columnNumber-1){
+        if (cellId%columnNumber < columnNumber-1){
             returnArray.push((cellId - columnNumber + 1),(cellId + 1),(cellId + columnNumber + 1));
         }
-        else if (!cellId%columnNumber){
-            returnArray.push((cellId - columnNumber + 1),(cellId - 1),(cellId + columnNumber - 1));
+        if (cellId%columnNumber > 0){
+            returnArray.push((cellId - columnNumber - 1),(cellId - 1),(cellId + columnNumber - 1));
         }
         if (includeSelf)  returnArray.push(cellId);
-        returnArray.push((cellId + 1),(cellId - 1));
-        console.log(returnArray)
+        returnArray.push((cellId + columnNumber),(cellId - columnNumber));
     }
     return returnArray.filter((index) => {if ((index > 0) && (index < cellArray.length)) return index});
 }
 
+function handleClick(event) {
+    // ! do a switch statment for different types of element not speciffic id's and do another for click 
+
+    // switch depending on target id 
+    // case runs 
+
+        // if clicktype left or right respectively run 
+    // leftClick(target)
+    // rightClick(target)
+}
 //!---------------Testing---------------------
 function updateHtmlContent(id, text){
     cellElementArray[id].textContent = text;
