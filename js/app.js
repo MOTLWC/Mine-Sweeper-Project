@@ -139,7 +139,7 @@ function handleClick(event) {
         case("click"):
         console.log("click")
         break;
-        case("contextMenu"):
+        case("contextmenu"):
         console.log("right click")
         break;
     }
