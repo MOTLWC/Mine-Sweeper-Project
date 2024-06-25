@@ -19,7 +19,6 @@ gridParent.addEventListener("click", handleClick);
 gridParent.addEventListener("contextmenu", handleClick);
 //!---------------Arrow Functions---------------
 const deleteChildren = () => {
-    console.log(Boolean(gridParent.value));
     while (gridParent.firstChild) {
         gridParent.removeChild(gridParent.firstChild);
         cellElementArray.shift();
