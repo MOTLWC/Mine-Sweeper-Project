@@ -53,4 +53,5 @@ aside{
 .flagStyle{
     background-color: crimson;
     background-image: url(https://www.clipartmax.com/png/small/200-2005302_flag-marshal-waving-red-flag-gif.png);
+    background-size: cover;
 }
