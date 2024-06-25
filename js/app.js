@@ -39,7 +39,7 @@ const alterCssVariables = (varibleName, newValue) => {
     root.style.setProperty(varibleName, newValue);
 }
 const alterMineMetaData = (index) =>{
-    cellElementArray[index].classList.add("red");
+    // cellElementArray[index].classList.add("red");
     cellElementArray[index].setAttribute("value","Mine");
 }
 
@@ -145,18 +145,31 @@ function handleClick(event) {
         console.log("right click")
         break;
     }
-    // ! do a switch statment for different types of element not speciffic id's and do another for click 
+}
 
-    // switch depending on target id 
-    // case runs 
+function leftClick(target){
+    // if target is a mine run unless it's the first turn updateLoss
+    // if it did happen to be the first turn flag the mine and send a sarcastic message
+    // if target is flagged return 
+    // tempArrayName getProxIndexes(target.index, true)
+    // for tempIndex of tempArrayName
+    // const recursionGodWrath = []
+    // 
+    //      if tempIndex is in recursionGodWroth continue (moves to the next element in the array)
+    //      if child.tempIndex.value == ""
+    //          recursionGodWrath.push(tempIndex)
+    //          tempArrayName.push(getProxIndexes(tempIndex,false))
+}
 
-        // if clicktype left or right respectively run 
-    // leftClick(target)
-    // rightClick(target)
+function rightClick(target){
+    // if flagsArray.length = mineArray.length return 
+    // add target to flagged 
+    // update flag count html element (text value = mines array length -flags length )
+    // if flagged remove flag
 }
 //!---------------Testing---------------------
-function updateHtmlContent(id, text){
-    cellElementArray[id].textContent = text;
-}
+// function updateHtmlContent(id, text){
+//     cellElementArray[id].textContent = text;
+// }
 
 init();
