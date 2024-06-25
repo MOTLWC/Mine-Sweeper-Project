@@ -122,6 +122,7 @@ function createMine(index){
 function getAdjacentIndexes(indexes, includeSelf){
     const returnArray =[];
     for(let cellId of indexes){
+        console.log("Mark " + cellId)
         if (cellId%columnNumber !== columnNumber-1){
             returnArray.push((cellId - columnNumber + 1),(cellId + 1),(cellId + columnNumber + 1));
         }
@@ -130,6 +131,7 @@ function getAdjacentIndexes(indexes, includeSelf){
         }
         if (includeSelf)  returnArray.push(cellId);
         returnArray.push((cellId + 1),(cellId - 1));
+        console.log(returnArray)
     }
     return returnArray.filter((index) => {if ((index > 0) && (index < cellArray.length)) return index});
 }
