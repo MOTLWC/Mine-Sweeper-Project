@@ -134,9 +134,8 @@ function getAdjacentIndexes(indexes, includeSelf){
 }
 
 function handleClick(event) {
-    console.log(event.target.classList);
     if (!event.target.classList[0].includes("cell")) return;
-    
+    console.dir(event);
     // ! do a switch statment for different types of element not speciffic id's and do another for click 
 
     // switch depending on target id 
