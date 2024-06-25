@@ -130,7 +130,7 @@ function getAdjacentIndexes(indexes, includeSelf){
         if (includeSelf)  returnArray.push(cellId);
         returnArray.push((cellId + columnNumber),(cellId - columnNumber));
     }
-    return returnArray.filter((index) => {if ((index > 0) && (index < cellArray.length)) return index});
+    return returnArray.filter((index) => {return (index > -1) && (index < cellArray.length)});
 }
 
 function handleClick(event) {
