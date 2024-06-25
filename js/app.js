@@ -70,13 +70,13 @@ function init(){
 }
 
 function getInputData() {
-    rowNumber = rowInputElement.value;
-    columnNumber = columnInputElement.value;
-    mineNumber = mineInputElement.value;
+    rowNumber = Number(rowInputElement.value);
+    columnNumber = Number(columnInputElement.value);
+    mineNumber = Number(mineInputElement.value);
     console.log(rowNumber, columnNumber,mineNumber);
-    if (!Number(rowNumber)) rowNumber = 7;
-    if (!Number(columnNumber)) columnNumber = 7;
-    if (!Number(mineNumber)) mineNumber = Math.floor(rowNumber*columnNumber*0.2); 
+    if (!rowNumber) rowNumber = 7;
+    if (!columnNumber) columnNumber = 7;
+    if (!mineNumber) mineNumber = Math.floor(rowNumber*columnNumber*0.2); 
 }
 
 // parameters (parentNode, childNodeId, aditional[atribute, value] pairs)
@@ -101,18 +101,22 @@ function setColumnValue(){
 
 function loopMines() {
     do {
-        createMine();
+        createMine(0);
     } while(mineLocations.length <= mineNumber);
     mineLocations.forEach(alterMineMetaData);
 }
 
-function createMine(index){
+function createMine(count, index){
     if (!index) index = Math.floor(Math.random() *cellArray.length);
     if (!mineLocations.includes(index)){
         mineLocations.push(index);
         return;
     }
-    createMine(index+1);
+    if (count = 3) {
+        createMine(0);
+        return;
+}
+    createMine(count+1, index+1);
 }
 // Come back to this see if you can clean up the code a little
 function getAdjacentIndexes(indexes, includeSelf){
