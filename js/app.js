@@ -19,6 +19,7 @@ gridParent.addEventListener("click", handleClick);
 gridParent.addEventListener("contextmenu", handleClick);
 //!---------------Arrow Functions---------------
 const deleteChildren = () => {
+    console.log(Boolean(gridParent.value));
     while (gridParent.firstChild) {
         gridParent.removeChild(gridParent.firstChild);
         cellElementArray.shift();
@@ -52,9 +53,7 @@ const countInstances = (totalObject, value) => {
 
 const iterateMetaData = (idArray) => {
     const iteratorObject = idArray.reduce(countInstances,{});
-    console.log(iteratorObject);
     for( let id in iteratorObject){
-        console.log(id, iteratorObject[id]);
         updateHtmlContent(id,iteratorObject[id]);
         cellElementArray[id].setAttribute("value", iteratorObject[id]);
     }
@@ -98,7 +97,6 @@ function setColumnValue(){
     for(let i = 0; i < columnNumber;i++){
         columnStringValue += "auto ";
     }
-    console.log(columnStringValue);
     alterCssVariables("--columnNumber", columnStringValue);
 }
 
@@ -120,6 +118,7 @@ function createMine(index){
 // Come back to this see if you can clean up the code a little
 function getAdjacentIndexes(indexes, includeSelf){
     const returnArray =[];
+    console.log(columnNumber)
     for(let cellId of indexes){
         if (cellId%columnNumber < columnNumber-1){
             returnArray.push((cellId - columnNumber + 1),(cellId + 1),(cellId + columnNumber + 1));
