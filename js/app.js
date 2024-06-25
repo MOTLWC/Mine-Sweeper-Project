@@ -15,8 +15,8 @@ let rowNumber;
 let columnNumber;
 let mineNumber;
 //!---------------Event Listeners---------------
-gridParent = document.addEventListener("click", handleClick);
-gridParent = document.addEventListener("contextmenu", handleClick);
+gridParent.addEventListener("click", handleClick);
+gridParent.addEventListener("contextmenu", handleClick);
 //!---------------Arrow Functions---------------
 const deleteChildren = () => {
     while (gridParent.firstChild) {
@@ -134,6 +134,7 @@ function getAdjacentIndexes(indexes, includeSelf){
 }
 
 function handleClick(event) {
+    if (!EventTarget.target.classList.includes("cell")) return;
     // ! do a switch statment for different types of element not speciffic id's and do another for click 
 
     // switch depending on target id 
