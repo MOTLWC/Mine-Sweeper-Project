@@ -44,7 +44,7 @@ const alterMineMetaData = (index) =>{
 }
 
 const countInstances = (totalObject, value) => {
-    if (cellElementArray[value].value === "Mine") return;
+    if (cellElementArray[value].value === "Mine") return totalObject;
     if (totalObject[value]) {totalObject[value] = totalObject[value] + 1;}
     else {totalObject[value] = 1;}
     return totalObject;
