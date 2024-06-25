@@ -135,7 +135,14 @@ function getAdjacentIndexes(indexes, includeSelf){
 
 function handleClick(event) {
     if (!event.target.classList[0].includes("cell")) return;
-    console.dir(event);
+    switch(event.type){
+        case("click"):
+        console.log("click")
+        break;
+        case("contextMenu"):
+        console.log("right click")
+        break;
+    }
     // ! do a switch statment for different types of element not speciffic id's and do another for click 
 
     // switch depending on target id 
