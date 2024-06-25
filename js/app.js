@@ -164,7 +164,7 @@ function leftClick(target){
 function rightClick(target){
     if (flagLocations.length === mineLocations.length) return;
     if (flagLocations.includes(target.id)) flagLocations.splice(flagLocations.indexOf(target.id),1);
-    flagLocations.push(target.id);
+    else flagLocations.push(target.id);
     console.log(flagLocations);
     // if flagsArray.length = mineArray.length return 
     // add target to flagged 
