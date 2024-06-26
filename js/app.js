@@ -160,9 +160,9 @@ function leftClick(target){
         }
         else{
         updateLoss();
+        }
     }
     firstTurn = false
-    }
 
     // if target is a mine run unless it's the first turn updateLoss
     // if it did happen to be the first turn flag the mine and send a sarcastic message
