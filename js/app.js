@@ -164,15 +164,21 @@ function leftClick(target){
         else{
         updateLoss();
         }
+        firstTurn = false;
+        return;
     }
-    firstTurn = false
+    firstTurn = false;
      const idArray = getAdjacentIndexes([Number(target.id)], true);
      const checkedTiles = [];
     for (let id of idArray){
         if (checkedTiles.includes(id)) continue;
-        if (!String(cellElementArray[id].getAttribute("value"))){
-            console.log(id)
+        console.log(id)
+        console.log(!cellElementArray[id].getAttribute("value"))
+        if (!cellElementArray[id].getAttribute("value")){
+            checkedTiles.push(id);
+            idArray.push(getAdjacentIndexes([id], false));
         }
+        console.log(idArray)
     }
 
     // tempArrayName getProxIndexes(target.index, true)
