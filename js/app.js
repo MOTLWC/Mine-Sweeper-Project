@@ -15,6 +15,7 @@ let rowNumber;
 let columnNumber;
 let mineNumber;
 let firstTurn;
+let gameOver;
 //!---------------Event Listeners---------------
 gridParent.addEventListener("click", handleClick);
 gridParent.addEventListener("contextmenu", handleClick);
@@ -30,6 +31,7 @@ const resetVars = () => {
     mineLocations.length = 0;
     flagLocations.length = 0;
     firstTurn = true;
+    gameOver = false;
     getInputData();
     for(let i = 0; i < rowNumber*columnNumber;i++){
         cellArray.push(i);
@@ -138,6 +140,7 @@ function getAdjacentIndexes(indexes, includeSelf){
 }
 
 function handleClick(event) {
+    if (gameOver) return;
     if (!event.target.classList[0].includes("cell")) return;
     switch(event.type){
         case("click"):
@@ -194,6 +197,7 @@ function updateLoss(){
     for( let mineId of mineLocations){
         cellElementArray[mineId].classList.add("mineStyle");
     }
+    gameOver = true;
     // reveals all mines and blocks further input
 }
 //!---------------Testing---------------------
