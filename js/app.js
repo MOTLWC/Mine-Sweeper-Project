@@ -191,7 +191,7 @@ function rightClick(target){
 }
 
 function updateLoss(){
-    for( let mineId in mineLocations){
+    for( let mineId of mineLocations){
         cellElementArray[mineId].classList.add("mineStyle");
     }
     // reveals all mines and blocks further input
