@@ -168,7 +168,7 @@ function leftClick(target){
         return;
     }
     firstTurn = false;
-     const idArray = getAdjacentIndexes([Number(target.id)], true);
+     let idArray = getAdjacentIndexes([Number(target.id)], true);
      const checkedTiles = [];
     for (let id of idArray){
         if (checkedTiles.includes(id)) continue;
@@ -176,7 +176,7 @@ function leftClick(target){
         console.log(!cellElementArray[id].getAttribute("value"))
         if (!cellElementArray[id].getAttribute("value")){
             checkedTiles.push(id);
-            idArray.push(getAdjacentIndexes([id], false));
+             idArray = idArray.concat(getAdjacentIndexes([id], false));
         }
         console.log(idArray)
     }
