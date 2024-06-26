@@ -14,6 +14,7 @@ const cellElementArray = [];
 let rowNumber;
 let columnNumber;
 let mineNumber;
+let firstTurn;
 //!---------------Event Listeners---------------
 gridParent.addEventListener("click", handleClick);
 gridParent.addEventListener("contextmenu", handleClick);
@@ -28,6 +29,7 @@ const resetVars = () => {
     cellArray.length = 0;
     mineLocations.length = 0;
     flagLocations.length = 0;
+    firstTurn = true;
     getInputData();
     for(let i = 0; i < rowNumber*columnNumber;i++){
         cellArray.push(i);
@@ -148,6 +150,14 @@ function handleClick(event) {
 }
 
 function leftClick(target){
+    if (target.value === "Mine"){
+        if (firstTurn){
+            rightClick(target);
+            console.log("Damn That was a lucky guess");
+            // ? You might switch this out if you want a large area to open up when first clicking 
+        }
+    }
+    
     // if target is a mine run unless it's the first turn updateLoss
     // if it did happen to be the first turn flag the mine and send a sarcastic message
     // if target is flagged return 
@@ -172,11 +182,6 @@ function rightClick(target){
         flagLocations.push(target.id);
         target.classList.add("flagStyle");
     }
-
-    // if flagsArray.length = mineArray.length return 
-    // add target to flagged 
-    // update flag count html element (text value = mines array length -flags length )
-    // if flagged remove flag
 }
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
