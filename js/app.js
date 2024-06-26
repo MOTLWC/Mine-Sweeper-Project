@@ -150,9 +150,6 @@ function handleClick(event) {
 }
 
 function leftClick(target){
-    console.log(mineLocations)
-    console.log(typeof(target.id))
-    console.log(mineLocations.includes(Number(target.id)))
     if (mineLocations.includes(Number(target.id))){
         console.log("lol")
         if (firstTurn){
@@ -161,7 +158,10 @@ function leftClick(target){
             console.log("Damn That was a lucky guess");
             // ? You might switch this out if you want a large area to open up when first clicking 
         }
-        updateLoss()
+        else{
+        updateLoss();
+    }
+    firstTurn = false
     }
 
     // if target is a mine run unless it's the first turn updateLoss
