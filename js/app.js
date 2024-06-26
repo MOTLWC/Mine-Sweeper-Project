@@ -152,12 +152,14 @@ function handleClick(event) {
 function leftClick(target){
     if (target.value === "Mine"){
         if (firstTurn){
+            firstTurn = false;
             rightClick(target);
             console.log("Damn That was a lucky guess");
             // ? You might switch this out if you want a large area to open up when first clicking 
         }
+        updateLoss()
     }
-    
+
     // if target is a mine run unless it's the first turn updateLoss
     // if it did happen to be the first turn flag the mine and send a sarcastic message
     // if target is flagged return 
@@ -182,6 +184,10 @@ function rightClick(target){
         flagLocations.push(target.id);
         target.classList.add("flagStyle");
     }
+}
+
+function updateLoss(){
+    // reveals all mines and blocks further input
 }
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
