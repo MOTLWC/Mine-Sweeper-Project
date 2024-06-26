@@ -59,3 +59,30 @@ aside{
     background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZHVJWDb4H4xjIkaEVOsAd8pcroYMlrEjEkg&s);
     background-size:cover;
 }
+.revealed {
+    background:white;
+}
+.one {
+    background-color:blue;
+}
+.two {
+    background-color:green;
+}
+.three {
+    background-color:yellow;
+}
+.four {
+    background-color:orange;
+}
+.five {
+    background-color:red;
+}
+.six {
+    background-color:crimson;
+}
+.seven {
+    background-color:violet;
+}
+.eight {
+    background-color:purple;
+}
