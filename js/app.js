@@ -153,7 +153,7 @@ function handleClick(event) {
 }
 
 function leftClick(target){
-    if (target.classList.includes("flagStyle")) return;
+    if (target.classList.contains("flagStyle")) return;
     if (mineLocations.includes(Number(target.id))){
         console.log("lol")
         if (firstTurn){
