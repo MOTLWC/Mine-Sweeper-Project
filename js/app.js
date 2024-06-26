@@ -43,7 +43,7 @@ const alterCssVariables = (varibleName, newValue) => {
     root.style.setProperty(varibleName, newValue);
 }
 const alterMineMetaData = (index) =>{
-    // cellElementArray[index].classList.add("red");
+    cellElementArray[index].classList.add("red");
     cellElementArray[index].setAttribute("value","Mine");
 }
 
@@ -57,7 +57,7 @@ const countInstances = (totalObject, value) => {
 const iterateMetaData = (idArray) => {
     const iteratorObject = idArray.reduce(countInstances,{});
     for( let id in iteratorObject){
-        // updateHtmlContent(id,iteratorObject[id]);
+        updateHtmlContent(id,iteratorObject[id]);
         cellElementArray[id].setAttribute("value", iteratorObject[id]);
     }
 }
@@ -167,9 +167,9 @@ function leftClick(target){
         }
     }
     firstTurn = false
+     const tempArray = getAdjacentIndexes(target.id, true);
+    console.log(tempArray)
 
-
-    // if target is flagged return 
     // tempArrayName getProxIndexes(target.index, true)
     // for tempIndex of tempArrayName
     // const recursionGodWrath = []
@@ -200,8 +200,8 @@ function updateLoss(){
     gameOver = true;
 }
 //!---------------Testing---------------------
-// function updateHtmlContent(id, text){
-//     cellElementArray[id].textContent = text;
-// }
+function updateHtmlContent(id, text){
+    cellElementArray[id].textContent = text;
+}
 
 init();
