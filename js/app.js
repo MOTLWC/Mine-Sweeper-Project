@@ -77,7 +77,6 @@ function getInputData() {
     rowNumber = Number(rowInputElement.value);
     columnNumber = Number(columnInputElement.value);
     mineNumber = Number(mineInputElement.value);
-    console.log(rowNumber, columnNumber, mineNumber);
     if (!rowNumber) rowNumber = 7;
     if (!columnNumber) columnNumber = 7;
     if (!mineNumber) mineNumber = Math.floor(rowNumber * columnNumber * 0.2);
@@ -85,7 +84,6 @@ function getInputData() {
 
 // parameters (parentNode, childNodeId, aditional[atribute, value] pairs)
 function createChildElement(parent, childId) {
-    console.log("bee")
     const newChild = document.createElement("div");
     newChild.setAttribute("id", childId);
     newChild.classList.add("cell");
@@ -153,7 +151,6 @@ function handleClick(event) {
 function leftClick(target) {
     if (target.classList.contains("flagStyle")) return;
     if (mineLocations.includes(Number(target.id))) {
-        console.log("lol")
         if (firstTurn) {
             firstTurn = false;
             rightClick(target);
@@ -167,33 +164,25 @@ function leftClick(target) {
         return;
     }
     firstTurn = false;
-    let idArray = getAdjacentIndexes([Number(target.id)], true);
+    let idsToCheck = getAdjacentIndexes([Number(target.id)], true);
     const checkedTiles = [];
-    for (let id of idArray) {
+    let cellsToReveal = [];
+    cellsToReveal.push(target.id);
+    for (let id of idsToCheck) {
+        console.log("Current id = " + id);
         if (checkedTiles.includes(id)) continue;
-        console.log(id)
-        console.log(cellValueArray[id] == "blank")
         if (cellValueArray[id] == "blank") {
             checkedTiles.push(id);
-            idArray = idArray.concat(getAdjacentIndexes([id], false));
-            revealCells(idArray);
+            const tempArray = getAdjacentIndexes([id], true);
+            idsToCheck = idsToCheck.concat(tempArray);
+            cellsToReveal = cellsToReveal.concat(tempArray);
         }
     }
-
-    // tempArrayName getProxIndexes(target.index, true)
-    // for tempIndex of tempArrayName
-    // const recursionGodWrath = []
-    // 
-    //      if tempIndex is in recursionGodWroth continue (moves to the next element in the array)
-    //      if child.tempIndex.value == ""
-    //          recursionGodWrath.push(tempIndex)
-    //          tempArrayName.push(getProxIndexes(tempIndex,false))
+    revealCells(cellsToReveal);
 }
 
 function revealCells(ids) {
     for (let id of ids) {
-        console.log(id)
-        console.log(cellValueArray[id]);
         switch (cellValueArray[id]) {
             case ("Mine"):
                 continue;
