@@ -7,7 +7,7 @@ const flagCounterElement = document.getElementById("flagDisplay");
 // ? "cellElementArray" will contain the children elements that will be added to "gridParent" when the game is initialised 
 const cellElementArray = [];
 //!---------------Constants---------------------
-const cellArray = [];
+const cellValueArray = [];
 const mineLocations = [];
 const flagLocations = [];
 //!---------------Variables---------------------
@@ -27,14 +27,14 @@ const deleteChildren = () => {
     }
 }
 const resetVars = () => {
-    cellArray.length = 0;
+    cellValueArray.length = 0;
     mineLocations.length = 0;
     flagLocations.length = 0;
     firstTurn = true;
     gameOver = false;
     getInputData();
     for (let i = 0; i < rowNumber * columnNumber; i++) {
-        cellArray.push(i);
+        cellValueArray.push("blank");
     }
 }
 // interacts with the :root element to get to the CSS variables
@@ -44,11 +44,11 @@ const alterCssVariables = (varibleName, newValue) => {
 }
 const alterMineMetaData = (index) => {
     // cellElementArray[index].classList.add("red");
-    cellElementArray[index].setAttribute("value", "Mine");
+    cellValueArray[index] = "Mine";
 }
 
 const countInstances = (totalObject, value) => {
-    if (cellElementArray[value].value === "Mine") return totalObject;
+    if (cellValueArray[value] === "Mine") return totalObject;
     if (totalObject[value]) { totalObject[value] = totalObject[value] + 1; }
     else { totalObject[value] = 1; }
     return totalObject;
@@ -58,7 +58,7 @@ const iterateMetaData = (idArray) => {
     const iteratorObject = idArray.reduce(countInstances, {});
     for (let id in iteratorObject) {
         // updateHtmlContent(id,iteratorObject[id]);
-        cellElementArray[id].setAttribute("value", iteratorObject[id]);
+        cellValueArray[id] = String(iteratorObject[id]);
     }
 }
 //!---------------Functions---------------------
@@ -66,8 +66,8 @@ function init() {
     deleteChildren();
     resetVars();
     setColumnValue();
-    for (let cellId of cellArray) {
-        createChildElement(gridParent, cellId, ["reveal", false], ["class", "cell"], ["value", ""], ["flagged", false]);
+    for (let cellId = 0; cellId < cellValueArray.length;cellId++) {
+        createChildElement(gridParent, cellId);
     }
     loopMines();
     iterateMetaData(getAdjacentIndexes(mineLocations, false));
@@ -84,12 +84,11 @@ function getInputData() {
 }
 
 // parameters (parentNode, childNodeId, aditional[atribute, value] pairs)
-function createChildElement(parent, childId, ...atributes) {
+function createChildElement(parent, childId) {
+    console.log("bee")
     const newChild = document.createElement("div");
     newChild.setAttribute("id", childId);
-    for (let atribute of atributes) {
-        newChild.setAttribute(atribute[0], atribute[1]);
-    }
+    newChild.classList.add("cell");
     parent.appendChild(newChild);
     cellElementArray.push(newChild);
 }
@@ -111,7 +110,7 @@ function loopMines() {
 }
 
 function createMine(count, index) {
-    if (!index) index = Math.floor(Math.random() * cellArray.length);
+    if (!index) index = Math.floor(Math.random() * cellValueArray.length);
     if (!mineLocations.includes(index)) {
         mineLocations.push(index);
         return;
@@ -135,7 +134,7 @@ function getAdjacentIndexes(indexes, includeSelf) {
         if (includeSelf) returnArray.push(cellId);
         returnArray.push((cellId + columnNumber), (cellId - columnNumber));
     }
-    return returnArray.filter((index) => { return (index > -1) && (index < cellArray.length) });
+    return returnArray.filter((index) => { return (index > -1) && (index < cellValueArray.length) });
 }
 
 function handleClick(event) {
@@ -173,11 +172,11 @@ function leftClick(target) {
     for (let id of idArray) {
         if (checkedTiles.includes(id)) continue;
         console.log(id)
-        console.log(!cellElementArray[id].getAttribute("value"))
-        if (!cellElementArray[id].getAttribute("value")) {
+        console.log(cellValueArray[id] == "blank")
+        if (cellValueArray[id] == "blank") {
             checkedTiles.push(id);
             idArray = idArray.concat(getAdjacentIndexes([id], false));
-            revealCells(idArray);
+            revealCells(getAdjacentIndexes([id], false));
         }
     }
 
@@ -196,31 +195,33 @@ function revealCells(...ids) {
         switch (cellElementArray[id].getAttribute("value")) {
             case ("Mine"):
                 continue;
-            case (1):
+            case ("1"):
                 cellElementArray[id].classList.add("one", "revealed");
                 break;
-            case (2):
+            case ("2"):
                 cellElementArray[id].classList.add("two", "revealed");
                 break;
-            case (3):
+            case ("3"):
                 cellElementArray[id].classList.add("three", "revealed");
                 break;
-            case (4):
+            case ("4"):
                 cellElementArray[id].classList.add("four", "revealed");
                 break;
-            case (5):
+            case ("5"):
                 cellElementArray[id].classList.add("five", "revealed");
                 break;
-            case (6):
+            case ("6"):
                 cellElementArray[id].classList.add("six", "revealed");
                 break;
-            case (7):
+            case ("7"):
                 cellElementArray[id].classList.add("seven", "revealed");
                 break;
-            case (8):
+            case ("8"):
                 cellElementArray[id].classList.add("eight", "revealed");
                 break;
-
+            default:
+                cellElementArray[id].classList.add("revealed");
+                break;
 
         }
     }
