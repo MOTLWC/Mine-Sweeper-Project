@@ -66,7 +66,7 @@ function init() {
     deleteChildren();
     resetVars();
     setColumnValue();
-    for (let cellId = 0; cellId < cellValueArray.length;cellId++) {
+    for (let cellId = 0; cellId < cellValueArray.length; cellId++) {
         createChildElement(gridParent, cellId);
     }
     loopMines();
@@ -176,7 +176,7 @@ function leftClick(target) {
         if (cellValueArray[id] == "blank") {
             checkedTiles.push(id);
             idArray = idArray.concat(getAdjacentIndexes([id], false));
-            revealCells(getAdjacentIndexes([id], false));
+            revealCells(idArray);
         }
     }
 
@@ -190,11 +190,16 @@ function leftClick(target) {
     //          tempArrayName.push(getProxIndexes(tempIndex,false))
 }
 
-function revealCells(...ids) {
+function revealCells(ids) {
     for (let id of ids) {
-        switch (cellElementArray[id].getAttribute("value")) {
+        console.log(id)
+        console.log(cellValueArray[id]);
+        switch (cellValueArray[id]) {
             case ("Mine"):
                 continue;
+            case ("blank"):
+                cellElementArray[id].classList.add("revealed");
+                break;
             case ("1"):
                 cellElementArray[id].classList.add("one", "revealed");
                 break;
@@ -219,10 +224,6 @@ function revealCells(...ids) {
             case ("8"):
                 cellElementArray[id].classList.add("eight", "revealed");
                 break;
-            default:
-                cellElementArray[id].classList.add("revealed");
-                break;
-
         }
     }
 }
