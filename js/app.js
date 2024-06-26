@@ -166,8 +166,14 @@ function leftClick(target){
         }
     }
     firstTurn = false
-     const tempArray = getAdjacentIndexes([Number(target.id)], true);
-    console.log(tempArray)
+     const idArray = getAdjacentIndexes([Number(target.id)], true);
+     const checkedTiles = [];
+    for (let id of idArray){
+        if (checkedTiles.includes(id)) continue;
+        if (!String(cellElementArray[id].getAttribute("value"))){
+            console.log(id)
+        }
+    }
 
     // tempArrayName getProxIndexes(target.index, true)
     // for tempIndex of tempArrayName
