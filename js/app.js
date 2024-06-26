@@ -43,7 +43,7 @@ const alterCssVariables = (varibleName, newValue) => {
     root.style.setProperty(varibleName, newValue);
 }
 const alterMineMetaData = (index) =>{
-    cellElementArray[index].classList.add("red");
+    // cellElementArray[index].classList.add("red");
     cellElementArray[index].setAttribute("value","Mine");
 }
 
@@ -57,7 +57,7 @@ const countInstances = (totalObject, value) => {
 const iterateMetaData = (idArray) => {
     const iteratorObject = idArray.reduce(countInstances,{});
     for( let id in iteratorObject){
-        updateHtmlContent(id,iteratorObject[id]);
+        // updateHtmlContent(id,iteratorObject[id]);
         cellElementArray[id].setAttribute("value", iteratorObject[id]);
     }
 }
@@ -125,7 +125,6 @@ function createMine(count, index){
 // Come back to this see if you can clean up the code a little
 function getAdjacentIndexes(indexes, includeSelf){
     const returnArray =[];
-    console.log(columnNumber)
     for(let cellId of indexes){
         if (cellId%columnNumber < columnNumber-1){
             returnArray.push((cellId - columnNumber + 1),(cellId + 1),(cellId + columnNumber + 1));
@@ -167,7 +166,7 @@ function leftClick(target){
         }
     }
     firstTurn = false
-     const tempArray = getAdjacentIndexes(target.id, true);
+     const tempArray = getAdjacentIndexes([Number(target.id)], true);
     console.log(tempArray)
 
     // tempArrayName getProxIndexes(target.index, true)
@@ -200,8 +199,8 @@ function updateLoss(){
     gameOver = true;
 }
 //!---------------Testing---------------------
-function updateHtmlContent(id, text){
-    cellElementArray[id].textContent = text;
-}
+// function updateHtmlContent(id, text){
+//     cellElementArray[id].textContent = text;
+// }
 
 init();
