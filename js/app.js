@@ -153,6 +153,7 @@ function handleClick(event) {
 }
 
 function leftClick(target){
+    if (target.classList.includes("flagStyle")) return;
     if (mineLocations.includes(Number(target.id))){
         console.log("lol")
         if (firstTurn){
@@ -167,8 +168,7 @@ function leftClick(target){
     }
     firstTurn = false
 
-    // if target is a mine run unless it's the first turn updateLoss
-    // if it did happen to be the first turn flag the mine and send a sarcastic message
+
     // if target is flagged return 
     // tempArrayName getProxIndexes(target.index, true)
     // for tempIndex of tempArrayName
@@ -198,7 +198,6 @@ function updateLoss(){
         cellElementArray[mineId].classList.add("mineStyle");
     }
     gameOver = true;
-    // reveals all mines and blocks further input
 }
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
