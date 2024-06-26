@@ -164,7 +164,7 @@ function leftClick(target) {
         return;
     }
     firstTurn = false;
-    let idsToCheck = getAdjacentIndexes([Number(target.id)], true);
+    const idsToCheck = getAdjacentIndexes([Number(target.id)], true);
     const checkedTiles = [];
     let cellsToReveal = [];
     cellsToReveal.push(target.id);
@@ -174,7 +174,7 @@ function leftClick(target) {
         if (cellValueArray[id] == "blank") {
             checkedTiles.push(id);
             const tempArray = getAdjacentIndexes([id], true);
-            idsToCheck = idsToCheck.concat(tempArray);
+            tempArray.forEach((value) => idsToCheck.push(value));
             cellsToReveal = cellsToReveal.concat(tempArray);
         }
     }
