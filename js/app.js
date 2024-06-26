@@ -150,7 +150,11 @@ function handleClick(event) {
 }
 
 function leftClick(target){
-    if (target.value === "Mine"){
+    console.log(mineLocations)
+    console.log(typeof(target.id))
+    console.log(mineLocations.includes(Number(target.id)))
+    if (mineLocations.includes(Number(target.id))){
+        console.log("lol")
         if (firstTurn){
             firstTurn = false;
             rightClick(target);
@@ -174,7 +178,6 @@ function leftClick(target){
 }
 
 function rightClick(target){
-
     if (flagLocations.includes(target.id)) {
         flagLocations.splice(flagLocations.indexOf(target.id),1);
         target.classList.remove("flagStyle");
@@ -187,6 +190,9 @@ function rightClick(target){
 }
 
 function updateLoss(){
+    for( let mineId in mineLocations){
+        cellElementArray[mineId].setAttribute("render",true);
+    }
     // reveals all mines and blocks further input
 }
 //!---------------Testing---------------------
