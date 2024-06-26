@@ -187,11 +187,12 @@ function rightClick(target){
         flagLocations.push(target.id);
         target.classList.add("flagStyle");
     }
+    // need to check for win 
 }
 
 function updateLoss(){
     for( let mineId in mineLocations){
-        cellElementArray[mineId].setAttribute("render",true);
+        cellElementArray[mineId].classList.add("mineStyle");
     }
     // reveals all mines and blocks further input
 }
