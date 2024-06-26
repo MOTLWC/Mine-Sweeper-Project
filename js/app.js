@@ -178,7 +178,7 @@ function leftClick(target){
             checkedTiles.push(id);
              idArray = idArray.concat(getAdjacentIndexes([id], false));
         }
-        console.log(idArray)
+        cellElementArray[id].classList.add("revealed", cellElementArray[id].getAttribute("value"));
     }
 
     // tempArrayName getProxIndexes(target.index, true)
