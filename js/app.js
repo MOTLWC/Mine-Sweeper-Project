@@ -138,6 +138,7 @@ function getAdjacentIndexes(indexes, includeSelf) {
 
 function handleClick(event) {
     if (gameOver) return;
+    if (event.target.classList.contains("revealed")) return
     if (!event.target.classList[0].includes("cell")) return;
     switch (event.type) {
         case ("click"):
