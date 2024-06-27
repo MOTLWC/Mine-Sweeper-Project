@@ -10,6 +10,7 @@ const cellElementArray = [];
 const cellValueArray = [];
 const mineLocations = [];
 const flagLocations = [];
+const blankSpot = [];
 //!---------------Variables---------------------
 let rowNumber;
 let columnNumber;
@@ -30,6 +31,7 @@ const resetVars = () => {
     cellValueArray.length = 0;
     mineLocations.length = 0;
     flagLocations.length = 0;
+    blankSpot.length = 0;
     firstTurn = true;
     gameOver = false;
     getInputData();
@@ -69,8 +71,6 @@ function init() {
     for (let cellId = 0; cellId < cellValueArray.length; cellId++) {
         createChildElement(gridParent, cellId);
     }
-    loopMines();
-    iterateMetaData(getAdjacentIndexes(mineLocations, false));
 }
 
 function getInputData() {
@@ -109,6 +109,7 @@ function loopMines() {
 
 function createMine(count, index) {
     if (!index) index = Math.floor(Math.random() * cellValueArray.length);
+    if (blankSpot.includes(index)) return;
     if (!mineLocations.includes(index)) {
         mineLocations.push(index);
         return;
@@ -149,21 +150,16 @@ function handleClick(event) {
 }
 
 function leftClick(target) {
+    if (firstTurn) {
+        firstTurn = false;
+        getAdjacentIndexes([Number(target.id)], true).forEach((value) => blankSpot.push(value));
+        loopMines();
+        iterateMetaData(getAdjacentIndexes(mineLocations, false));    }
     if (target.classList.contains("flagStyle")) return;
     if (mineLocations.includes(Number(target.id))) {
-        if (firstTurn) {
-            firstTurn = false;
-            rightClick(target);
-            console.log("Damn That was a lucky guess");
-            // ? You might switch this out if you want a large area to open up when first clicking 
-        }
-        else {
             updateLoss();
-        }
-        firstTurn = false;
         return;
     }
-    firstTurn = false;
     const idsToCheck = getAdjacentIndexes([Number(target.id)], true);
     const checkedTiles = [];
     let cellsToReveal = [];
