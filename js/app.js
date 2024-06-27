@@ -180,6 +180,7 @@ function leftClick(target) {
 
 function revealCells(ids) {
     for (let id of ids) {
+        if(cellElementArray[id].classList.contains("flagStyle")) continue;
         switch (cellValueArray[id]) {
             case ("Mine"):
                 continue;
