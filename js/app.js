@@ -233,6 +233,10 @@ function updateLoss() {
     }
     gameOver = true;
 }
+
+function giveHint(index){
+    // almost exactly like the createmine function
+}
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
 //     cellElementArray[id].textContent = text;
