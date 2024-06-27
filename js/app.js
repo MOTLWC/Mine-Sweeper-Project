@@ -235,7 +235,9 @@ function updateLoss() {
 }
 
 function giveHint(index){
-    // almost exactly like the createmine function
+    if (!index) index = Math.floor(Math.random() * cellValueArray.length);
+    if (!cellElementArray[index].classList.contains("revealed")) revealCells([index]);
+    giveHint(index + 1);
 }
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
