@@ -1,29 +1,38 @@
 :root{
     --columnNumber: auto;
+    --colour1:255,0,0;
+    --colour2:0,255,0;
+    --colour3:0,0,255;
 }
 main{
     display: flex;
     justify-content:space-between ;
+    height: 100%;
+}
+body{
+    background:radial-gradient(rgb(var(--colour1)),rgb(var(--colour2)),rgb(var(--colour3)));
+    background-size: cover;
+    background-repeat: none;
+    height: 100vh;
 }
 aside{
-    min-width: 10%;
-    max-width: 15%;
-    background: lightgray;
+    width: 15%;
+    height:min-content;
+    background: rgba(100,100,100,0.5);
 }
 .grid{
     display: grid;
     gap:2px;
-    width: 500px;
+    height: 90%;
     grid-template-columns:var(--columnNumber);
     margin: auto;
 }
 .cell{
-    width:100%;
     aspect-ratio: 1/1;
-    background-color: grey;
+    background-color: rgba(100,100,100,0.4);
 }
 .dropdown{
-    background:lightslategray;
+    background:rgba(100,100,100,0.5);
 }
 .dropdownElements{
     display: none;

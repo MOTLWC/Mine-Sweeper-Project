@@ -17,7 +17,7 @@ let columnNumber;
 let mineNumber;
 let firstTurn;
 let gameOver;
-
+let backgroundCount = 0;
 //!---------------Event Listeners---------------
 gridParent.addEventListener("click", handleClick);
 gridParent.addEventListener("contextmenu", handleClick);
@@ -78,8 +78,8 @@ function getInputData() {
     rowNumber = Number(rowInputElement.value);
     columnNumber = Number(columnInputElement.value);
     mineNumber = Number(mineInputElement.value);
-    if (!rowNumber) rowNumber = 10;
-    if (!columnNumber) columnNumber = 10;
+    if (!rowNumber || rowNumber < 4) rowNumber = 10;
+    if (!columnNumber || columnNumber < 4) columnNumber = 10;
     if (!mineNumber) mineNumber = Math.floor(rowNumber * columnNumber * 0.2);
 }
 
@@ -273,4 +273,16 @@ function checkForWin() {
 //     cellElementArray[id].textContent = text;
 // }
 
+function backgroundChanger() {
+    let sinValue1 = (((Math.sin(((backgroundCount * 3)/255)*6.28)+1)/2) * 255);
+    let sinValue2 = (((Math.sin(((backgroundCount * 3) + backgroundCount/255)*6.28)+1)/2) * 255);
+    let sinValue3 = (((Math.sin((((backgroundCount * 3) + backgroundCount * 2)/255)*6.28)+1)/2) * 255);
+    console.log(sinValue3)
+    alterCssVariables("--colour1", `${sinValue1},${sinValue2},${sinValue3}`);
+    alterCssVariables("--colour2", `${sinValue2},${sinValue3},${sinValue1}`);
+    alterCssVariables("--colour3", `${sinValue3},${sinValue1},${sinValue2}`);
+    backgroundCount++;
+    console.log(backgroundCount);
+}
 init();
+setInterval(backgroundChanger, 30);
