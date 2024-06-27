@@ -17,6 +17,7 @@ let columnNumber;
 let mineNumber;
 let firstTurn;
 let gameOver;
+
 //!---------------Event Listeners---------------
 gridParent.addEventListener("click", handleClick);
 gridParent.addEventListener("contextmenu", handleClick);
@@ -166,7 +167,6 @@ function leftClick(target) {
     let cellsToReveal = [];
     cellsToReveal.push(target.id);
     for (let id of idsToCheck) {
-        console.log("Current id = " + id);
         if (checkedTiles.includes(id)) continue;
         if (cellValueArray[id] == "blank") {
             checkedTiles.push(id);
@@ -234,10 +234,23 @@ function updateLoss() {
     gameOver = true;
 }
 
-function giveHint(index){
+function giveHint(count, index){
+    console.log("Running count: " + count);
+    if (firstTurn) return;
     if (!index) index = Math.floor(Math.random() * cellValueArray.length);
-    if (!cellElementArray[index].classList.contains("revealed")) revealCells([index]);
-    giveHint(index + 1);
+    if (!cellElementArray[index].classList.contains("revealed")) {
+        if (mineLocations.includes(index) && !flagLocations.includes(String(index))){
+            rightClick(cellElementArray[index]);
+            return;
+        }
+        revealCells([index], true);
+        return;
+    }
+    if (count > 4) {
+        giveHint(0);
+        return;
+    }
+    giveHint(count + 1, index + 1);
 }
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
