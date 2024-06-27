@@ -77,8 +77,8 @@ function getInputData() {
     rowNumber = Number(rowInputElement.value);
     columnNumber = Number(columnInputElement.value);
     mineNumber = Number(mineInputElement.value);
-    if (!rowNumber) rowNumber = 7;
-    if (!columnNumber) columnNumber = 7;
+    if (!rowNumber) rowNumber = 10;
+    if (!columnNumber) columnNumber = 10;
     if (!mineNumber) mineNumber = Math.floor(rowNumber * columnNumber * 0.2);
 }
 
