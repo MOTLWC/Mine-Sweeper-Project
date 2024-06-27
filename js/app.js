@@ -224,6 +224,10 @@ function rightClick(target) {
         flagLocations.push(target.id);
         target.classList.add("flagStyle");
     }
+    if (flagLocations.length === mineLocations.length){
+        console.log("cheking");
+        checkForWin();
+    }
     // need to check for win 
 }
 
@@ -251,6 +255,17 @@ function giveHint(count, index){
         return;
     }
     giveHint(count + 1, index + 1);
+}
+
+function checkForWin() {
+    const array1 = mineLocations.sort(function(a, b){return Number(b) - Number(a)});
+    const array2 = flagLocations.sort(function(a, b){return Number(b) - Number(a)});
+    console.log(array1 + " / " + array2)
+    for ( let index = 0; index < array1.length; index++){
+        console.log(index)
+        if (array1[index] != array2[index]) return;
+    }
+    console.log("Win")
 }
 //!---------------Testing---------------------
 // function updateHtmlContent(id, text){
