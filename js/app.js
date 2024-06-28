@@ -277,12 +277,11 @@ function backgroundChanger() {
     let sinValue1 = (((Math.sin(((backgroundCount * 3)/255)*6.28)+1)/2) * 255);
     let sinValue2 = (((Math.sin(((backgroundCount * 3) + backgroundCount/255)*6.28)+1)/2) * 255);
     let sinValue3 = (((Math.sin((((backgroundCount * 3) + backgroundCount * 2)/255)*6.28)+1)/2) * 255);
-    console.log(sinValue3)
     alterCssVariables("--colour1", `${sinValue1},${sinValue2},${sinValue3}`);
     alterCssVariables("--colour2", `${sinValue2},${sinValue3},${sinValue1}`);
     alterCssVariables("--colour3", `${sinValue3},${sinValue1},${sinValue2}`);
     backgroundCount++;
-    console.log(backgroundCount);
+    if (backgroundCount >765) backgroundCount = 0;
 }
 init();
 setInterval(backgroundChanger, 50);
