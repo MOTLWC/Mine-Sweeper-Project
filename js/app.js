@@ -72,6 +72,7 @@ function init() {
     for (let cellId = 0; cellId < cellValueArray.length; cellId++) {
         createChildElement(gridParent, cellId);
     }
+    updateFlagNumber();
 }
 
 function getInputData() {
@@ -225,11 +226,10 @@ function rightClick(target) {
         flagLocations.push(target.id);
         target.classList.add("flagStyle");
     }
+    updateFlagNumber();
     if (flagLocations.length === mineLocations.length){
-        console.log("cheking");
         checkForWin();
     }
-    // need to check for win 
 }
 
 function updateLoss() {
@@ -270,7 +270,7 @@ function checkForWin() {
 }
 
 function updateFlagNumber() {
-    
+    flagCounterElement.innerText = `Flags Remaining : ${mineNumber - flagLocations.length}`;
 }
 
 function backgroundChanger() {
@@ -285,4 +285,4 @@ function backgroundChanger() {
     console.log(backgroundCount);
 }
 init();
-setInterval(backgroundChanger, 30);
+setInterval(backgroundChanger, 50);

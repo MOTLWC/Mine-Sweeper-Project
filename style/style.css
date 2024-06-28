@@ -32,10 +32,14 @@ aside{
     background-color: rgba(100,100,100,0.4);
 }
 .dropdown{
+    display:flex;
     background:rgba(100,100,100,0.5);
+    align-items: center;
+    flex-direction: column;
 }
 .dropdownElements{
     display: none;
+    padding:8px;
 }
 .inputBox{
     max-width:90%;
@@ -49,9 +53,18 @@ aside{
     justify-content: space-between;
 }
 #flagDisplay{
-    width:50px;
-    height:15px;
-    background: green;
+    margin:auto;
+    padding:4px 6px;
+    width:auto;
+    height:20px;
+    background: crimson;
+    font-weight: bolder;
+}
+button {
+    margin:4px auto;
+    background-color:rgb(255, 221, 147);
+    padding: 5px;
+    font-weight: bolder;
 }
 .dropdown:hover .dropdownElements{
     display:flex;
@@ -69,7 +82,7 @@ aside{
     background-size:cover;
 }
 .revealed {
-    background:rgba(200,200,200,0.4);
+    background:none;
 }
 .one {
     
