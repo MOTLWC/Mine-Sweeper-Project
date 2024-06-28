@@ -69,29 +69,37 @@ aside{
     background-size:cover;
 }
 .revealed {
-    background:white;
+    background:rgba(200,200,200,0.4);
 }
 .one {
-    background-color:blue;
+    
+    background:url(../images/bg_image_1.png);
 }
 .two {
-    background-color:green;
+    
+    background:url(../images/bg_image_2.png);
 }
 .three {
-    background-color:yellow;
+    
+    background:url(../images/bg_image_3.png);
 }
 .four {
-    background-color:orange;
+    background:url(../images/bg_image_4.png);
 }
 .five {
-    background-color:red;
-}
+    
+    background:url(../images/bg_image_5.png);
+    }
 .six {
-    background-color:crimson;
+    background:url(../images/bg_image_6.png);
 }
 .seven {
-    background-color:violet;
+    background:url(../images/bg_image_7.png);
 }
 .eight {
-    background-color:purple;
+    background:black;
+}
+.revealed {
+    background-size: cover;
+    background-repeat: no-repeat;
 }

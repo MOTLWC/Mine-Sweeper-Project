@@ -268,10 +268,10 @@ function checkForWin() {
     }
     console.log("Win")
 }
-//!---------------Testing---------------------
-// function updateHtmlContent(id, text){
-//     cellElementArray[id].textContent = text;
-// }
+
+function updateFlagNumber() {
+    
+}
 
 function backgroundChanger() {
     let sinValue1 = (((Math.sin(((backgroundCount * 3)/255)*6.28)+1)/2) * 255);
