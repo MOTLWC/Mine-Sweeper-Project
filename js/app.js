@@ -241,7 +241,7 @@ function updateLoss() {
 
 function giveHint(count, index){
     console.log("Running count: " + count);
-    if (firstTurn) return;
+    if (firstTurn || gameOver) return;
     if (!index) index = Math.floor(Math.random() * cellValueArray.length);
     if (!cellElementArray[index].classList.contains("revealed")) {
         if (mineLocations.includes(index) && !flagLocations.includes(String(index))){
@@ -266,11 +266,11 @@ function checkForWin() {
         console.log(index)
         if (array1[index] != array2[index]) return;
     }
-    console.log("Win")
+    alert("Damn look at John MineSweeper over here!")
 }
 
 function updateFlagNumber() {
-    flagCounterElement.innerText = `Flags Remaining : ${mineNumber - flagLocations.length}`;
+    flagCounterElement.innerText = `Flags Remaining : ${mineNumber - flagLocations.length + 1}`;
 }
 
 function backgroundChanger() {

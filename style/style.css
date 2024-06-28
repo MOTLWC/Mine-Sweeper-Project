@@ -54,9 +54,9 @@ aside{
 }
 #flagDisplay{
     margin:auto;
-    padding:4px 6px;
+    padding:5px 8px;
     width:auto;
-    height:20px;
+    height:auto;
     background: crimson;
     font-weight: bolder;
 }
@@ -73,8 +73,7 @@ button {
     flex-direction: column;
 }
 .flagStyle{
-    background-color: crimson;
-    background-image: url(https://cdn130.picsart.com/310189966116201.gif?to=crop&type=webp&r=40x40&q=50);
+    background-image: url(../images/Flag.gif);
     background-size: cover;
 }
 .mineStyle{
