@@ -3,8 +3,11 @@
 ![image](https://github.com/MOTLWC/Mine-Sweeper-Project/assets/142592359/748c32bc-a527-4970-8e21-77d47057f48d)
 
 
-Mine Sweeper is a game in which the player reveals tiles, if the player reveals a mine they lose. Revealed tiles show the number of mines in the surrounding tiles. The player wins by flagging all of the mine tiles correctly.
-I chose this game because of the recursive aspects, and the challenge they bring to the project seemed like fun to solve and code.
+[Play Here](https://motlwc.github.io/Mine-Sweeper-Project/)
+
+Mine Sweeper is a game in which the player reveals tiles by clicking on them, among these tiles are hidden mines, if the player reveals a mine they lose. Revealed tiles show the number of mines in the surrounding tiles. The player wins by flagging all of the mine tiles correctly.
+
+I chose this game because of the recursive aspects, and the challenge they bring to the project seemed like fun to solve and code. Also I really dislike Checkers.
 
 ## Attribution
 
@@ -24,3 +27,4 @@ I chose this game because of the recursive aspects, and the challenge they bring
  - Making a solving algorithm to make sure all created puzzles are solvable
  - Adding sound effects and music
  - Adding an undo button for if you lose the game
+ - Deleting the ugly background that too way too long to make
