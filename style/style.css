@@ -84,22 +84,18 @@ button {
     background:none;
 }
 .one {
-    
     background:url(../images/bg_image_1.png);
 }
 .two {
-    
     background:url(../images/bg_image_2.png);
 }
 .three {
-    
     background:url(../images/bg_image_3.png);
 }
 .four {
     background:url(../images/bg_image_4.png);
 }
-.five {
-    
+.five { 
     background:url(../images/bg_image_5.png);
     }
 .six {
