@@ -274,6 +274,7 @@ function updateFlagNumber() {
 }
 
 function backgroundChanger() {
+    if (party){
     let sinValue1 = (((Math.sin(((backgroundCount * 3)/255)*6.28)+1)/2) * 255);
     let sinValue2 = (((Math.sin(((backgroundCount * 3) + backgroundCount/255)*6.28)+1)/2) * 255);
     let sinValue3 = (((Math.sin((((backgroundCount * 3) + backgroundCount * 2)/255)*6.28)+1)/2) * 255);
@@ -281,7 +282,14 @@ function backgroundChanger() {
     alterCssVariables("--colour2", `${sinValue2},${sinValue3},${sinValue1}`);
     alterCssVariables("--colour3", `${sinValue3},${sinValue1},${sinValue2}`);
     backgroundCount++;
-    if (backgroundCount >765) backgroundCount = 0;
+    if (backgroundCount >765) backgroundCount = 0;}
 }
+
+let party = false
+function partyTime(){
+    if (party) {party = false;}
+    else {party = true;}
+}
+
 init();
-setInterval(backgroundChanger, 50);
+setInterval(backgroundChanger, 30);
